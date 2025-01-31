@@ -3,7 +3,8 @@ let animationPaused = false; // Toggle animation state
 let savedColorShift = 0; // Stores color state when paused
 
 function setup() {
-  createCanvas(400, 400);
+
+  createCanvas(800, 800);
 }
 
 function draw() {
@@ -12,15 +13,15 @@ function draw() {
   // Outline
   noFill();
   stroke("#E8E2CF");
-  strokeWeight(7);
-  square(50, 50, 300);
+  strokeWeight(14); 
+  square(100, 100, 600); 
 
   // Check if the mouse is hovering over any shape
   hovered = checkHover();
 
   // Animation variables (stop movement if hovered or paused)
-  let offsetX = hovered ? 0 : (animationPaused ? 0 : sin(frameCount * 0.1) * 5);
-  let offsetY = hovered ? 0 : (animationPaused ? 0 : sin(frameCount * 0.1 + PI / 2) * 5);
+  let offsetX = hovered ? 0 : (animationPaused ? 0 : sin(frameCount * 0.1) * 10); 
+  let offsetY = hovered ? 0 : (animationPaused ? 0 : sin(frameCount * 0.1 + PI / 2) * 10);
 
   // If paused, keep the last color state; otherwise, update
   let colorShift = animationPaused ? savedColorShift : (sin(frameCount * 0.05) + 1) / 2;
@@ -31,59 +32,59 @@ function draw() {
   noStroke();
   fill(rgbLerp("#BCC2C7", "#D2A200", colorShift));
   triangle(
-    55 - offsetX, 55 - offsetY,
-    55 - offsetX, 160 - offsetY,
-    160 + offsetX, 55 - offsetY
+    110 - offsetX, 110 - offsetY,
+    110 - offsetX, 320 - offsetY,
+    320 + offsetX, 110 - offsetY
   );
 
   // Bottom left corner
   fill(rgbLerp("#D2A200", "#AD2609", colorShift));
   triangle(
-    55 - offsetX, 240 - offsetY,
-    55 - offsetX, 345 - offsetY,
-    115 - offsetX, 290 - offsetY
+    110 - offsetX, 480 - offsetY,
+    110 - offsetX, 690 - offsetY,
+    230 - offsetX, 570 - offsetY
   );
 
   // Bottom right corner
   fill(rgbLerp("#E8E4DB", "#D2A200", colorShift));
   triangle(
-    55 + offsetX, 345 + offsetY,
-    115 + offsetX, 290 - offsetY,
-    185 - offsetX, 345 - offsetY
+    110 + offsetX, 690 + offsetY,
+    230 + offsetX, 570 - offsetY,
+    370 - offsetX, 690 - offsetY
   );
 
   // Middle bottom triangle
   fill(rgbLerp("#C4C9D1", "#BCC2C7", colorShift));
   triangle(
-    185 - offsetX, 230 - offsetY,
-    185 - offsetY, 345 + offsetY,
-    300 + offsetX, 345 - offsetY
+    370 - offsetX, 460 - offsetY,
+    370 - offsetY, 690 + offsetY,
+    600 + offsetX, 690 - offsetY
   );
 
   // Right corner triangle (not red)
-  fill(rgbLerp("#807E7F","#E8E2CF", colorShift));
+  fill(rgbLerp("#807E7F", "#E8E2CF", colorShift));
   triangle(
-    345 - offsetX, 55 + offsetY,
-    275 - offsetX, 150 + offsetY,
-    215 - offsetX, 55 - offsetY
+    690 - offsetX, 110 + offsetY,
+    550 - offsetX, 300 + offsetY,
+    430 - offsetX, 110 - offsetY
   );
 
   // Red triangle on right side
   fill(rgbLerp("#AD2609", "#0A0A0A", colorShift));
   quad(
-    345 + offsetX, 345 - offsetY,
-    345 - offsetX, 55 - offsetY,
-    185 + offsetX, 230 + offsetY,
-    300 - offsetX, 345 - offsetY
+    690 + offsetX, 690 - offsetY,
+    690 - offsetX, 110 - offsetY,
+    370 + offsetX, 460 + offsetY,
+    600 - offsetX, 690 - offsetY
   );
 
   // Light-colored quad near the top
   fill(rgbLerp("#EAE4DA", "#AD2609", colorShift));
   quad(
-    185 + offsetX, 55 - offsetY,
-    215 + offsetX, 55 + offsetY,
-    275 - offsetX, 132 - offsetY,
-    185 + offsetX, 230 - offsetY
+    370 + offsetX, 110 - offsetY,
+    430 + offsetX, 110 + offsetY,
+    550 - offsetX, 264 - offsetY,
+    370 + offsetX, 460 - offsetY
   );
 }
 
@@ -102,7 +103,7 @@ function rgbLerp(color1, color2, t) {
 // Function to check if the mouse is over any of the shapes
 function checkHover() {
   return (
-    mouseX > 50 && mouseX < 350 && mouseY > 50 && mouseY < 350 // Bounding box for all shapes
+    mouseX > 100 && mouseX < 700 && mouseY > 100 && mouseY < 700 
   );
 }
 
