@@ -26,54 +26,54 @@ function draw() {
   // If paused, keep the last color state; otherwise, update
   let colorShift = animationPaused ? savedColorShift : (sin(frameCount * 0.05) + 1) / 2;
 
-  // Inside triangles
+   // Inside triangles
 
   // Top left corner
   noStroke();
   fill(rgbLerp("#BCC2C7", "#D2A200", colorShift));
   triangle(
-    110 - offsetX, 110 - offsetY,
-    110 - offsetX, 320 - offsetY,
-    320 + offsetX, 110 - offsetY
+    105 , 105 ,
+    105 - offsetX, 260 - offsetY,
+    260 + offsetX, 105 - offsetY
   );
 
-  // Bottom left corner
+  // Bottom left corner left
   fill(rgbLerp("#D2A200", "#AD2609", colorShift));
   triangle(
-    110 - offsetX, 480 - offsetY,
-    110 - offsetX, 690 - offsetY,
+    105 , 480,
+    105 - offsetX, 690 - offsetY,
     230 - offsetX, 570 - offsetY
   );
 
-  // Bottom right corner
+  // Bottom right corner left
   fill(rgbLerp("#E8E4DB", "#D2A200", colorShift));
   triangle(
-    110 + offsetX, 690 + offsetY,
+    105 + offsetX, 690 + offsetY,
     230 + offsetX, 570 - offsetY,
-    370 - offsetX, 690 - offsetY
+    370, 690 
   );
 
   // Middle bottom triangle
   fill(rgbLerp("#C4C9D1", "#BCC2C7", colorShift));
   triangle(
-    370 - offsetX, 460 - offsetY,
+    370 + offsetX, 460 - offsetY,
     370 - offsetY, 690 + offsetY,
     600 + offsetX, 690 - offsetY
   );
 
   // Right corner triangle (not red)
-  fill(rgbLerp("#807E7F", "#E8E2CF", colorShift));
+  fill(rgbLerp("#807E7F","#EAE4DA", colorShift));
   triangle(
-    690 - offsetX, 110 + offsetY,
+    690 + offsetX, 105 + offsetY,
     550 - offsetX, 300 + offsetY,
-    430 - offsetX, 110 - offsetY
+    430 , 105 
   );
 
   // Red triangle on right side
   fill(rgbLerp("#AD2609", "#0A0A0A", colorShift));
   quad(
-    690 + offsetX, 690 - offsetY,
-    690 - offsetX, 110 - offsetY,
+    690 , 690 ,
+    690 , 105 ,
     370 + offsetX, 460 + offsetY,
     600 - offsetX, 690 - offsetY
   );
@@ -81,12 +81,13 @@ function draw() {
   // Light-colored quad near the top
   fill(rgbLerp("#EAE4DA", "#AD2609", colorShift));
   quad(
-    370 + offsetX, 110 - offsetY,
-    430 + offsetX, 110 + offsetY,
+    370 , 105 ,
+    430 + offsetX, 105 - offsetY,
     550 - offsetX, 264 - offsetY,
     370 + offsetX, 460 - offsetY
   );
 }
+
 
 // Helper function to interpolate RGB colors smoothly
 function rgbLerp(color1, color2, t) {
