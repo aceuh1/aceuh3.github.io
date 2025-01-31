@@ -22,7 +22,7 @@ function draw() {
   noStroke();
   fill(rgbLerp("#BCC2C7", "#D2A200", colorShift));
   triangle(
-    105 - offsetX, 105 - offsetY,
+    105 , 105 ,
     105 - offsetX, 260 - offsetY,
     260 + offsetX, 105 - offsetY
   );
@@ -30,7 +30,7 @@ function draw() {
   // Bottom left corner left
   fill(rgbLerp("#D2A200", "#AD2609", colorShift));
   triangle(
-    105 - offsetX, 480 - offsetY,
+    105 , 480,
     105 - offsetX, 690 - offsetY,
     230 - offsetX, 570 - offsetY
   );
@@ -40,7 +40,7 @@ function draw() {
   triangle(
     105 + offsetX, 690 + offsetY,
     230 + offsetX, 570 - offsetY,
-    370 - offsetX, 690 - offsetY
+    370, 690 
   );
 
   // Middle bottom triangle
@@ -54,16 +54,16 @@ function draw() {
   // Right corner triangle (not red)
   fill(rgbLerp("#807E7F","#EAE4DA", colorShift));
   triangle(
-    690 - offsetX, 105 + offsetY,
+    690 + offsetX, 105 + offsetY,
     550 - offsetX, 300 + offsetY,
-    430 - offsetX, 105 - offsetY
+    430 , 105 
   );
 
   // Red triangle on right side
   fill(rgbLerp("#AD2609", "#0A0A0A", colorShift));
   quad(
-    690 + offsetX, 690 - offsetY,
-    690 - offsetX, 105 - offsetY,
+    690 , 690 ,
+    690 , 105 ,
     370 + offsetX, 460 + offsetY,
     600 - offsetX, 690 - offsetY
   );
@@ -71,12 +71,13 @@ function draw() {
   // Light-colored quad near the top
   fill(rgbLerp("#EAE4DA", "#AD2609", colorShift));
   quad(
-    370 + offsetX, 105 - offsetY,
-    430 + offsetX, 105 + offsetY,
+    370 , 105 ,
+    430 + offsetX, 105 - offsetY,
     550 - offsetX, 264 - offsetY,
     370 + offsetX, 460 - offsetY
   );
 }
+
 
 // Helper function to interpolate RGB colors smoothly
 function rgbLerp(color1, color2, t) {
