@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 800); // Set canvas size to 800x800 pixels
 }
 
 function draw() {
@@ -8,73 +8,73 @@ function draw() {
   // Outline
   noFill();
   stroke("#F2F4E7");
-  strokeWeight(7);
-  square(50, 50, 300);
+  strokeWeight(14); // Adjust stroke weight for larger canvas
+  square(100, 100, 600); // Adjust square size and position
 
   // Animation variables
-  let offsetX = sin(frameCount * 0.1) * 5; // Smooth oscillation in x
-  let offsetY = sin(frameCount * 0.1 + PI / 2) * 5; // Smooth oscillation in y
+  let offsetX = sin(frameCount * 0.1) * 10; // Smooth oscillation in x (doubled)
+  let offsetY = sin(frameCount * 0.1 + PI / 2) * 10; // Smooth oscillation in y (doubled)
   let colorShift = (sin(frameCount * 0.05) + 1) / 2; // Normalize for lerp
 
   // Inside triangles
 
   // Top left corner
   noStroke();
-  fill(rgbLerp("#BCC2C7", "#D2A200",  colorShift));
+  fill(rgbLerp("#BCC2C7", "#D2A200", colorShift));
   triangle(
-    55 - offsetX, 55 - offsetY,
-    55 - offsetX, 160 - offsetY,
-    160 + offsetX, 55 - offsetY
+    105 - offsetX, 105 - offsetY,
+    105 - offsetX, 260 - offsetY,
+    260 + offsetX, 105 - offsetY
   );
 
   // Bottom left corner left
   fill(rgbLerp("#D2A200", "#AD2609", colorShift));
   triangle(
-    55 - offsetX, 240 - offsetY,
-    55 - offsetX, 345 - offsetY,
-    115 - offsetX, 290 - offsetY
+    105 - offsetX, 480 - offsetY,
+    105 - offsetX, 690 - offsetY,
+    230 - offsetX, 570 - offsetY
   );
 
   // Bottom right corner left
   fill(rgbLerp("#E8E4DB", "#D2A200", colorShift));
   triangle(
-    55 + offsetX, 345 + offsetY,
-    115 + offsetX, 290 - offsetY,
-    185 - offsetX, 345 - offsetY
+    105 + offsetX, 690 + offsetY,
+    230 + offsetX, 570 - offsetY,
+    370 - offsetX, 690 - offsetY
   );
 
   // Middle bottom triangle
   fill(rgbLerp("#C4C9D1", "#BCC2C7", colorShift));
   triangle(
-    185 + offsetX, 230 - offsetY,
-    185 - offsetY, 345 + offsetY,
-    300 + offsetX, 345 - offsetY
+    370 + offsetX, 460 - offsetY,
+    370 - offsetY, 690 + offsetY,
+    600 + offsetX, 690 - offsetY
   );
 
   // Right corner triangle (not red)
   fill(rgbLerp("#807E7F","#EAE4DA", colorShift));
   triangle(
-    345 - offsetX, 55 + offsetY,
-    275 - offsetX, 150 + offsetY,
-    215 - offsetX, 55 - offsetY
+    690 - offsetX, 105 + offsetY,
+    550 - offsetX, 300 + offsetY,
+    430 - offsetX, 105 - offsetY
   );
 
   // Red triangle on right side
   fill(rgbLerp("#AD2609", "#0A0A0A", colorShift));
   quad(
-    345 + offsetX, 345 - offsetY,
-    345 - offsetX, 55 - offsetY,
-    185 + offsetX, 230 + offsetY,
-    300 - offsetX, 345 - offsetY
+    690 + offsetX, 690 - offsetY,
+    690 - offsetX, 105 - offsetY,
+    370 + offsetX, 460 + offsetY,
+    600 - offsetX, 690 - offsetY
   );
 
   // Light-colored quad near the top
   fill(rgbLerp("#EAE4DA", "#AD2609", colorShift));
   quad(
-    185 + offsetX, 55 - offsetY,
-    215 + offsetX, 55 + offsetY,
-    275 - offsetX, 132 - offsetY,
-    185 + offsetX, 230 - offsetY
+    370 + offsetX, 105 - offsetY,
+    430 + offsetX, 105 + offsetY,
+    550 - offsetX, 264 - offsetY,
+    370 + offsetX, 460 - offsetY
   );
 }
 
